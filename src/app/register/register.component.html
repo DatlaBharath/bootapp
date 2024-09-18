@@ -1,0 +1,86 @@
+<form class="row g-3 needs-validation mx-5 " (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="validationCustom01" class="form-label">First name</label>
+      <input type="text" class="form-control" [(ngModel)]="user.firstName" name="fname" id="validationCustom01" value="Bharath" required #valFname="ngModel" minlength="6" />
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="validationCustom02" class="form-label">Last name</label>
+      <input type="text" [(ngModel)]="user.lastName" class="form-control" name="lname" id="validationCustom02" value="Kamal" required #valLname="ngModel" minlength="6" />
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="validationCustomUsername" class="form-label">Username</label>
+      <div class="input-group">
+        <span class="input-group-text" id="inputGroupPrepend">#</span>
+        <input type="text" class="form-control" [(ngModel)]="user.username" name="uname" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required #valUname="ngModel" minlength="6" />
+        <div class="invalid-feedback">
+          Please choose a username.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="validationCustomUsername" class="form-label">Password</label>
+      <div class="input-group">
+        <input type="password" class="form-control" [(ngModel)]="user.password" name="pass" id="validationCustomPass" aria-describedby="inputGroupPrepend" required #valPass="ngModel" minlength="8" />
+        <div class="invalid-feedback">
+          Please choose a Password.
+        </div>
+      </div>
+      <label for="validationCustomUsername" class="form-label">Re Enter Password</label>
+      <div class="input-group">
+        <span class="input-group-text" id="inputGroupPrepend">RE</span>
+        <input type="password" class="form-control" name="pass2" id="validationCustomRePass" aria-describedby="inputGroupPrepend" />
+        <div class="invalid-feedback">
+          Please choose a Password.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="validationCustom03" class="form-label">City</label>
+      <input type="text" class="form-control" name="city" [(ngModel)]="user.city" id="validationCustom03" required  #valCity="ngModel" minlength="5"/>
+      <div class="invalid-feedback">
+        Please provide a valid city.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="validationCustom04" class="form-label">State</label>
+      <select class="form-select" [(ngModel)]="user.state" name="state" id="validationCustom04" required  #valState="ngModel">
+        <option selected disabled value="">Choose...</option>
+        <option>Andhra Pradesh</option>
+        <option>Kerala</option>
+        <option>Telangana</option>
+        <option>Karnataka</option>
+        <option>Tamil Nadu</option>
+      </select>
+      <div class="invalid-feedback">
+        Please select a valid state.
+      </div>
+    </div>
+    <div class="form-group">// 876325
+      <label for="validationCustom05" class="form-label">Zip</label>
+      <input type="text" class="form-control" [(ngModel)]="user.zip" name="state" id="validationCustom05" required  #valZip="ngModel" minlength="6"/>
+      <div *ngIf="valZip.invalid && valZip.touched">
+        <div *ngIf="valZip.errors?.['required']">Required </div>
+        <div *ngIf="valZip.errors?.['minlength']">Length should be atleast 6 characters</div>
+      </div>
+    </div>
+    <!-- <div class="form-group">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+        <label class="form-check-label" for="invalidCheck">
+          Agree to terms and conditions
+        </label>
+        <div class="invalid-feedback">
+          You must agree before submitting.
+        </div>
+      </div>
+    </div> -->
+    <div class="form-group">
+      <button class="btn btn-primary form-control" type="submit">Sign up</button>
+    </div>
+</form>
